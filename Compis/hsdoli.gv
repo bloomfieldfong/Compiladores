@@ -1,0 +1,20 @@
+digraph finite_state_machine {
+	rankdir=TB size="8,5"
+	node [shape=doublecircle]
+	program
+	node [shape=circle]
+	program -> class
+	program -> Program
+	program -> "{"
+	program -> declaration
+	declaration -> varDeclaration
+	varDeclaration -> varType
+	varType -> int
+	varDeclaration -> holis
+	varDeclaration -> ";"
+	program -> holis
+	program -> "="
+	program -> 5
+	program -> ";"
+	program -> "}"
+}

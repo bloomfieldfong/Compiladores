@@ -1,0 +1,10 @@
+digraph finite_state_machine {
+	rankdir=LR size="8,5"
+	node [shape=doublecircle]
+	program
+	node [shape=circle]
+	program -> class [label=" "]
+	program -> Program [label=" "]
+	program -> "{" [label=" "]
+	program -> declaration [label=" "]
+}
