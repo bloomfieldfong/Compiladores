@@ -2,10 +2,12 @@ import sys
 from antlr4 import *
 from DecafLexer import DecafLexer
 from DecafParser import DecafParser
+from miVisitor import miVisitor
 from antlr4.tree.Trees import Trees
 from antlr4.tree.Tree import TerminalNodeImpl
 from graphviz import Digraph
 import os
+
 os.environ["PATH"] += os.pathsep + 'C:/Program Files (x86)/Graphviz2.38/bin'
 res = []
 
@@ -15,9 +17,11 @@ def main(argv):
     stream = CommonTokenStream(lexer)
     parser = DecafParser(stream)
     tree = parser.program()
+    visitor = miVisitor()
+    visitor.visit(tree)
     
     #print(Trees.toStringTree(tree, None, parser))
-    arbol(tree, parser.ruleNames)
+    #arbol(tree, parser.ruleNames)
     
     
 def arbol(tree, rule_names, indent = 0):
@@ -69,5 +73,4 @@ if __name__ == '__main__':
         if int(res[i][0]) >= maximo:
             maximo = res[i][0] 
     
-    print(res)
-    graficadora(res,maximo)
+    ##graficadora(res,maximo)

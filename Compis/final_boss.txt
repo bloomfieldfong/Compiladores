@@ -1,0 +1,79 @@
+class Program
+{
+
+int a;
+int a;
+char b;
+struct A
+{
+    int a;
+}
+
+struct B
+{
+    int b[5];
+    struct A c;
+}
+
+struct A y;
+struct A z;
+struct B m;
+
+void main()
+{
+    struct B y[5];
+    int i;
+    int j;
+    int k;  
+
+
+    i = 0;
+    j=0;
+    z.a = 3;    
+
+    while(i<=10)
+    {
+        y[j].b[0]=InputInt();
+        
+        if(y[j].b[0]==5)
+        {
+            y[j].b[0]=z.a;
+            k=factorial(ReturnNumber());
+            OutputInt(k);
+        }       
+
+        y[j].c.a=factorial(y[j].b[0]);
+        OutputInt(y[j].c.a);
+        i = i + 1;
+    }
+}
+
+void error(){
+    char c;
+    m.b[10] = 5;
+    b.c.a = 'c';
+    if (1) { a = 4;} else {m = 3;}
+    c = factorial (c);
+    return m;
+}
+
+
+int factorial(int n)
+{
+    if (n==0)
+    {return 1;}
+    else
+    {return n*factorial(n-1);}
+}
+
+void OutputInt(int n)
+{
+}
+
+int InputInt()
+{return 0;}
+
+int ReturnNumber()
+{return z.a;}
+
+}

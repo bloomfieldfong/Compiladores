@@ -1,0 +1,15 @@
+class Program {
+
+	int colores;
+	int prueba;
+ 	int rosas;
+	int sdf[5];
+	int rosas;
+
+	struct s{
+		int s;
+		int rosas;
+		int ds[3];
+	}
+
+}

@@ -8,72 +8,87 @@ program
 	;
 
 declaration 
-	:   structDeclaration
-	|   varDeclaration
-	|   methodDeclaration
+	:   structDeclaration#structDeclara
+	|   varDeclaration#varDecla
+	|   methodDeclaration#methodDecla
 	;
 	 
 varDeclaration 
-	:   varType Id ';'												
-	|   varType Id '[' Num ']' ';'									
+	:vartype=varType Id ';'#normal										
+	|vartype= varType  Id '[' Num ']' ';'#lista
+								
 	;
 
 structDeclaration
-	:   'struct' Id '{' (varDeclaration)* '}'
+	:   'struct' Id '{' (varDeclaration)* '}' 
 	;
+
+
 
 varType
 	:   'int'														
 	|   'char'														
 	|   'boolean'													
-	|   'struct' Id													
+	|   'struct' Id												
 	|   structDeclaration											
 	|   'void'														
 	;
 
 methodDeclaration
-	:   'int' Id '(' (parameter (',' parameter)*)? ')' block		
-	|   'char' Id '(' (parameter (',' parameter)*)? ')' block		
-	|   'boolean' Id '(' (parameter (',' parameter)*)? ')' block	
-	|   'void' Id '(' (parameter (',' parameter)*)? ')' block		
+	:   metoInt='int' Id '(' (parameter (',' parameter)*)? ')' block #metoInt		
+	|   metoChar='char' Id '(' (parameter (',' parameter)*)? ')' block #metoChar		
+	|   metoBool='boolean' Id '(' (parameter (',' parameter)*)? ')' block	#metoBool
+	|   metVoid = 'void' Id '(' (parameter (',' parameter)*)? ')' block	#metoVoid	
 	;
 
 parameter
-	:   parameterType Id		 #single_parameterDeclaration
+	:   param = parameterType Id#single_parameterDeclaration
 	;
 
 parameterType
-	:   'int'					#int_parameterType
-	|   'char'					#char_parameterType
-	|   'boolean'				#boolean_parameterType
+	:   'int'#int_parameterType
+	|   'char'#char_parameterType
+	|   'boolean'#boolean_parameterType
 	;
 
 block
-	:   '{' (varDeclaration)* (statement)* '}' 
-	;
-statement
-	:   'if' '(' expression ')' block ('else' block)?				
-	|   'while' '(' expression ')' block							
-	|   'return' (expression)? ';'									
-	|   methodCall ';'												
-	|   block														
-	|   location '=' expression ';'									
-	|   location '=' '(char)' expression ';'						
-	|   (expression)? ';'											
+	:   '{'(varDeclaration)* (statement)* '}' 
 	;
 
+
+statement
+   	:   ifStmt
+	|   whileStmt
+	|   returnStmt
+	|   methodCall 	';'										
+	|   block														
+	|   location '=' expression';'							
+	|   location '=' '(char)' expression ';'						
+	|   (expression)? ';'										
+	;
+
+ifStmt
+	:'if' '(' expression ')' block ('else' block)?
+	;
+whileStmt
+	:'while' '(' expression ')' block
+	;
+returnStmt
+	:'return' (expression)? ';'	
+	;
 location  
-	: Id ('.' location)?											
-	|   Id '[' expression ']' ('.' location)?						
+	: Id ('.' location)?										
+	| Id '[' expression ']' ('.' location)?						
 	;
 
 
 expression  //ya
 	:   location													
 	|   methodCall													
-	|	Num															
+	|   Num															
 	|   CharacterLiteral											
-	|   bool_literal												
+	|   bool_literal
+	|   expression arith_higher_op expression												
 	|   expression arith_op expression								
 	|   expression rel_op expression								
 	|   expression eq_op expression									
@@ -90,13 +105,16 @@ methodCall
 arg
 	:   expression //ya
 	;
-	
+
+arith_higher_op
+    : '*' 
+    | '/' 
+    | '%' 
+    ;
+
 arith_op
 	:   '+'
 	|   '-'
-	|   '*'
-	|   '/'
-	|   '%'
 	;
 
 rel_op
