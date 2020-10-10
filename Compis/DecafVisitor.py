@@ -119,8 +119,68 @@ class DecafVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by DecafParser#expression.
-    def visitExpression(self, ctx:DecafParser.ExpressionContext):
+    # Visit a parse tree produced by DecafParser#cond_op_expr.
+    def visitCond_op_expr(self, ctx:DecafParser.Cond_op_exprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by DecafParser#boolliteral_expr.
+    def visitBoolliteral_expr(self, ctx:DecafParser.Boolliteral_exprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by DecafParser#loca_expr.
+    def visitLoca_expr(self, ctx:DecafParser.Loca_exprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by DecafParser#num_expr.
+    def visitNum_expr(self, ctx:DecafParser.Num_exprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by DecafParser#arith_op_expr.
+    def visitArith_op_expr(self, ctx:DecafParser.Arith_op_exprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by DecafParser#parentesisexpr_expr.
+    def visitParentesisexpr_expr(self, ctx:DecafParser.Parentesisexpr_exprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by DecafParser#rel_op_expr.
+    def visitRel_op_expr(self, ctx:DecafParser.Rel_op_exprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by DecafParser#methodCall_expr.
+    def visitMethodCall_expr(self, ctx:DecafParser.MethodCall_exprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by DecafParser#charliteral_expr.
+    def visitCharliteral_expr(self, ctx:DecafParser.Charliteral_exprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by DecafParser#arith_higher_expr.
+    def visitArith_higher_expr(self, ctx:DecafParser.Arith_higher_exprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by DecafParser#negativo_expr.
+    def visitNegativo_expr(self, ctx:DecafParser.Negativo_exprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by DecafParser#eq_op_expr.
+    def visitEq_op_expr(self, ctx:DecafParser.Eq_op_exprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by DecafParser#negacion_expr.
+    def visitNegacion_expr(self, ctx:DecafParser.Negacion_exprContext):
         return self.visitChildren(ctx)
 
 

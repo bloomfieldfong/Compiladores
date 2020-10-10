@@ -83,19 +83,19 @@ location
 
 
 expression  //ya
-	:   location													
-	|   methodCall													
-	|   Num															
-	|   CharacterLiteral											
-	|   bool_literal
-	|   expression arith_higher_op expression												
-	|   expression arith_op expression								
-	|   expression rel_op expression								
-	|   expression eq_op expression									
-	|   expression cond_op expression								
-	|   '-' expression												
-	|   '!' expression												
-	|   '(' expression ')'											
+	:   location#loca_expr											
+	|   methodCall#methodCall_expr											
+	|   Num#num_expr												
+	|   CharacterLiteral#charliteral_expr										
+	|   bool_literal#boolliteral_expr
+	|   derecha =expression arith_higher_op izquierda=expression#arith_higher_expr										
+	|   derecha =expression arith_op izquierda=expression#arith_op_expr								
+	|   derecha =expression rel_op izquierda=expression#rel_op_expr							
+	|   derecha =expression eq_op izquierda=expression#eq_op_expr									
+	|   derecha =expression cond_op izquierda=expression#cond_op_expr							
+	|   '-' expression#negativo_expr												
+	|   '!' expression#negacion_expr											
+	|   '(' expression ')'#parentesisexpr_expr											
 	;
 
 methodCall

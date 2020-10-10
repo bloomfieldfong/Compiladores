@@ -206,12 +206,120 @@ class DecafListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by DecafParser#expression.
-    def enterExpression(self, ctx:DecafParser.ExpressionContext):
+    # Enter a parse tree produced by DecafParser#cond_op_expr.
+    def enterCond_op_expr(self, ctx:DecafParser.Cond_op_exprContext):
         pass
 
-    # Exit a parse tree produced by DecafParser#expression.
-    def exitExpression(self, ctx:DecafParser.ExpressionContext):
+    # Exit a parse tree produced by DecafParser#cond_op_expr.
+    def exitCond_op_expr(self, ctx:DecafParser.Cond_op_exprContext):
+        pass
+
+
+    # Enter a parse tree produced by DecafParser#boolliteral_expr.
+    def enterBoolliteral_expr(self, ctx:DecafParser.Boolliteral_exprContext):
+        pass
+
+    # Exit a parse tree produced by DecafParser#boolliteral_expr.
+    def exitBoolliteral_expr(self, ctx:DecafParser.Boolliteral_exprContext):
+        pass
+
+
+    # Enter a parse tree produced by DecafParser#loca_expr.
+    def enterLoca_expr(self, ctx:DecafParser.Loca_exprContext):
+        pass
+
+    # Exit a parse tree produced by DecafParser#loca_expr.
+    def exitLoca_expr(self, ctx:DecafParser.Loca_exprContext):
+        pass
+
+
+    # Enter a parse tree produced by DecafParser#num_expr.
+    def enterNum_expr(self, ctx:DecafParser.Num_exprContext):
+        pass
+
+    # Exit a parse tree produced by DecafParser#num_expr.
+    def exitNum_expr(self, ctx:DecafParser.Num_exprContext):
+        pass
+
+
+    # Enter a parse tree produced by DecafParser#arith_op_expr.
+    def enterArith_op_expr(self, ctx:DecafParser.Arith_op_exprContext):
+        pass
+
+    # Exit a parse tree produced by DecafParser#arith_op_expr.
+    def exitArith_op_expr(self, ctx:DecafParser.Arith_op_exprContext):
+        pass
+
+
+    # Enter a parse tree produced by DecafParser#parentesisexpr_expr.
+    def enterParentesisexpr_expr(self, ctx:DecafParser.Parentesisexpr_exprContext):
+        pass
+
+    # Exit a parse tree produced by DecafParser#parentesisexpr_expr.
+    def exitParentesisexpr_expr(self, ctx:DecafParser.Parentesisexpr_exprContext):
+        pass
+
+
+    # Enter a parse tree produced by DecafParser#rel_op_expr.
+    def enterRel_op_expr(self, ctx:DecafParser.Rel_op_exprContext):
+        pass
+
+    # Exit a parse tree produced by DecafParser#rel_op_expr.
+    def exitRel_op_expr(self, ctx:DecafParser.Rel_op_exprContext):
+        pass
+
+
+    # Enter a parse tree produced by DecafParser#methodCall_expr.
+    def enterMethodCall_expr(self, ctx:DecafParser.MethodCall_exprContext):
+        pass
+
+    # Exit a parse tree produced by DecafParser#methodCall_expr.
+    def exitMethodCall_expr(self, ctx:DecafParser.MethodCall_exprContext):
+        pass
+
+
+    # Enter a parse tree produced by DecafParser#charliteral_expr.
+    def enterCharliteral_expr(self, ctx:DecafParser.Charliteral_exprContext):
+        pass
+
+    # Exit a parse tree produced by DecafParser#charliteral_expr.
+    def exitCharliteral_expr(self, ctx:DecafParser.Charliteral_exprContext):
+        pass
+
+
+    # Enter a parse tree produced by DecafParser#arith_higher_expr.
+    def enterArith_higher_expr(self, ctx:DecafParser.Arith_higher_exprContext):
+        pass
+
+    # Exit a parse tree produced by DecafParser#arith_higher_expr.
+    def exitArith_higher_expr(self, ctx:DecafParser.Arith_higher_exprContext):
+        pass
+
+
+    # Enter a parse tree produced by DecafParser#negativo_expr.
+    def enterNegativo_expr(self, ctx:DecafParser.Negativo_exprContext):
+        pass
+
+    # Exit a parse tree produced by DecafParser#negativo_expr.
+    def exitNegativo_expr(self, ctx:DecafParser.Negativo_exprContext):
+        pass
+
+
+    # Enter a parse tree produced by DecafParser#eq_op_expr.
+    def enterEq_op_expr(self, ctx:DecafParser.Eq_op_exprContext):
+        pass
+
+    # Exit a parse tree produced by DecafParser#eq_op_expr.
+    def exitEq_op_expr(self, ctx:DecafParser.Eq_op_exprContext):
+        pass
+
+
+    # Enter a parse tree produced by DecafParser#negacion_expr.
+    def enterNegacion_expr(self, ctx:DecafParser.Negacion_exprContext):
+        pass
+
+    # Exit a parse tree produced by DecafParser#negacion_expr.
+    def exitNegacion_expr(self, ctx:DecafParser.Negacion_exprContext):
         pass
 
 

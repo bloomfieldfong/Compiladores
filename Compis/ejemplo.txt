@@ -1,15 +1,25 @@
-class Program {
+class Program
+{
+struct A
+{
+    int a;
+    int b;
+}
 
-	int colores;
-	int prueba;
- 	int rosas;
-	int sdf[5];
-	int rosas;
 
-	struct s{
-		int s;
-		int rosas;
-		int ds[3];
-	}
+struct A y;
+struct A z;
 
+
+int ReturnNumber()
+{
+z.a = 3*3+3+3+3*4*3+5*1;
+z.b = 2+2*z.b;
+z.a = (1+2) + 3;
+z.a = 1+2;
+z.a = 5 + 6 + 7;
+z.a = 4*5+2*3
+z.a = 5+6+3+2+3+6+5;
+return z.a;
+}
 }

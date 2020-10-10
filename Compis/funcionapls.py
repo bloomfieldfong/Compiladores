@@ -6,6 +6,7 @@ from miVisitor import miVisitor
 from antlr4.tree.Trees import Trees
 from antlr4.tree.Tree import TerminalNodeImpl
 from graphviz import Digraph
+from codigo_intermedio import *
 import os
 
 os.environ["PATH"] += os.pathsep + 'C:/Program Files (x86)/Graphviz2.38/bin'
@@ -17,8 +18,18 @@ def main(argv):
     stream = CommonTokenStream(lexer)
     parser = DecafParser(stream)
     tree = parser.program()
+    
     visitor = miVisitor()
     visitor.visit(tree)
+    
+    simbolos = visitor.simb
+    metodos = visitor.meto
+    tipos = visitor.tip
+    errores = visitor.errores
+    
+    
+    codigo_inter = codigo_intermedio(tipos, metodos, simbolos)
+    codigo_inter.visit(tree)
     
     #print(Trees.toStringTree(tree, None, parser))
     #arbol(tree, parser.ruleNames)

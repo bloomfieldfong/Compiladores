@@ -18,6 +18,18 @@ class miVisitor(DecafVisitor):
         print(ctx.getText())
         return self.visitChildren(ctx)
 
+    # Visit a parse tree produced by DecafParser#ifStmt.
+    def visitIfStmt(self, ctx:DecafParser.IfStmtContext):
+
+
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by DecafParser#whileStmt.
+    def visitWhileStmt(self, ctx:DecafParser.WhileStmtContext):
+        return self.visitChildren(ctx)
+
+
 ################################################################ SIMBOLOS #######################################################
     #Simbolos
     #[nombre, tipo, ambito, tamano, offset]
@@ -122,7 +134,6 @@ class miVisitor(DecafVisitor):
     # parametros =
     # VISITA METODO INT
     def visitMetoInt(self, ctx:DecafParser.MetoIntContext):
-        self.errores.append("esto es un metodo int siaqui")
         self.ambito = str(ctx.Id())
         ############################
         #Ambito = str(ctx.Id())
@@ -171,6 +182,7 @@ class miVisitor(DecafVisitor):
         
         ## ingresar metodos
         me = metodos(str(ctx.Id()), "int","global", str(lista_para))
+        print(me)
         if metodos.comparacion_metodo(self.meto,me):
             self.meto.append(me)
         else:
@@ -234,6 +246,7 @@ class miVisitor(DecafVisitor):
         
         ## ingresar metodos
         me = metodos(str(ctx.Id()), "int","global", str(lista_para))
+        print(me)
         if metodos.comparacion_metodo(self.meto,me):
             self.meto.append(me)
         else:
@@ -298,6 +311,7 @@ class miVisitor(DecafVisitor):
         
         ## ingresar metodos
         me = metodos(str(ctx.Id()), "int","global", str(lista_para))
+        print(me)
         if metodos.comparacion_metodo(self.meto,me):
             self.meto.append(me)
         else:
@@ -357,6 +371,7 @@ class miVisitor(DecafVisitor):
         
         ## ingresar metodos
         me = metodos(str(ctx.Id()), "int","global", str(lista_para))
+        print(me)
         if metodos.comparacion_metodo(self.meto,me):
             self.meto.append(me)
         else:

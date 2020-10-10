@@ -74,6 +74,9 @@ int InputInt()
 {return 0;}
 
 int ReturnNumber()
-{return z.a;}
+{
+z.a = 3+3+3+3+3;
+return z.a;
+}
 
 }
