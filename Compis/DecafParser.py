@@ -1475,6 +1475,8 @@ class DecafParser ( Parser ):
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
+            self.block1 = None # BlockContext
+            self.block_else = None # BlockContext
 
         def expression(self):
             return self.getTypedRuleContext(DecafParser.ExpressionContext,0)
@@ -1523,7 +1525,7 @@ class DecafParser ( Parser ):
             self.state = 207
             self.match(DecafParser.T__13)
             self.state = 208
-            self.block()
+            localctx.block1 = self.block()
             self.state = 211
             self._errHandler.sync(self)
             _la = self._input.LA(1)
@@ -1531,7 +1533,7 @@ class DecafParser ( Parser ):
                 self.state = 209
                 self.match(DecafParser.T__17)
                 self.state = 210
-                self.block()
+                localctx.block_else = self.block()
 
 
         except RecognitionException as re:

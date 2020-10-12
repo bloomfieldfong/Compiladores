@@ -15,7 +15,7 @@ class miVisitor(DecafVisitor):
 
     # Visit a parse tree produced by DecafParser#statement.
     def visitStatement(self, ctx:DecafParser.StatementContext):
-        print(ctx.getText())
+        
         return self.visitChildren(ctx)
 
     # Visit a parse tree produced by DecafParser#ifStmt.

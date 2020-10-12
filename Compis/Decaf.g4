@@ -68,7 +68,7 @@ statement
 	;
 
 ifStmt
-	:'if' '(' expression ')' block ('else' block)?
+	:'if' '(' expression ')' block1 = block ('else' block_else= block)?
 	;
 whileStmt
 	:'while' '(' expression ')' block

@@ -1,0 +1,156 @@
+2020-10-11 15:24:58:279 grammar LogManager.java:25 before: (COMBINED_GRAMMAR Decaf (@ lexer namespace {CustomIde}) (@ parser namespace {CustomIde}) (RULES (RULE program (BLOCK (ALT 'class' Id '{' (* (BLOCK (ALT declaration))) '}'))) (RULE declaration (BLOCK (ALT structDeclaration) (ALT varDeclaration) (ALT methodDeclaration))) (RULE varDeclaration (BLOCK (ALT (= vartype varType) Id ';') (ALT (= vartype varType) Id '[' Num ']' ';'))) (RULE structDeclaration (BLOCK (ALT 'struct' Id '{' (* (BLOCK (ALT varDeclaration))) '}'))) (RULE varType (BLOCK (ALT 'int') (ALT 'char') (ALT 'boolean') (ALT 'struct' Id) (ALT structDeclaration) (ALT 'void'))) (RULE methodDeclaration (BLOCK (ALT (= metoInt 'int') Id '(' (? (BLOCK (ALT parameter (* (BLOCK (ALT ',' parameter)))))) ')' block) (ALT (= metoChar 'char') Id '(' (? (BLOCK (ALT parameter (* (BLOCK (ALT ',' parameter)))))) ')' block) (ALT (= metoBool 'boolean') Id '(' (? (BLOCK (ALT parameter (* (BLOCK (ALT ',' parameter)))))) ')' block) (ALT (= metVoid 'void') Id '(' (? (BLOCK (ALT parameter (* (BLOCK (ALT ',' parameter)))))) ')' block))) (RULE parameter (BLOCK (ALT (= param parameterType) Id))) (RULE parameterType (BLOCK (ALT 'int') (ALT 'char') (ALT 'boolean'))) (RULE block (BLOCK (ALT '{' (* (BLOCK (ALT varDeclaration))) (* (BLOCK (ALT statement))) '}'))) (RULE statement (BLOCK (ALT ifStmt) (ALT whileStmt) (ALT returnStmt) (ALT methodCall ';') (ALT block) (ALT location '=' expression ';') (ALT location '=' '(char)' expression ';') (ALT (? (BLOCK (ALT expression))) ';'))) (RULE ifStmt (BLOCK (ALT 'if' '(' expression ')' (= block1 block) (? (BLOCK (ALT 'else' (= block_else block))))))) (RULE whileStmt (BLOCK (ALT 'while' '(' expression ')' block))) (RULE returnStmt (BLOCK (ALT 'return' (? (BLOCK (ALT expression))) ';'))) (RULE location (BLOCK (ALT Id (? (BLOCK (ALT '.' location)))) (ALT Id '[' expression ']' (? (BLOCK (ALT '.' location)))))) (RULE expression (BLOCK (ALT location) (ALT methodCall) (ALT Num) (ALT CharacterLiteral) (ALT bool_literal) (ALT (= derecha expression) arith_higher_op (= izquierda expression)) (ALT (= derecha expression) arith_op (= izquierda expression)) (ALT (= derecha expression) rel_op (= izquierda expression)) (ALT (= derecha expression) eq_op (= izquierda expression)) (ALT (= derecha expression) cond_op (= izquierda expression)) (ALT '-' expression) (ALT '!' expression) (ALT '(' expression ')'))) (RULE methodCall (BLOCK (ALT Id '(' (? (BLOCK (ALT arg (* (BLOCK (ALT ',' arg)))))) ')'))) (RULE arg (BLOCK (ALT expression))) (RULE arith_higher_op (BLOCK (ALT '*') (ALT '/') (ALT '%'))) (RULE arith_op (BLOCK (ALT '+') (ALT '-'))) (RULE rel_op (BLOCK (ALT '<') (ALT '>') (ALT '<=') (ALT '>='))) (RULE eq_op (BLOCK (ALT '==') (ALT '!='))) (RULE cond_op (BLOCK (ALT '&&') (ALT '||'))) (RULE bool_literal (BLOCK (ALT 'true') (ALT 'false'))) (RULE Id (BLOCK (ALT Letter (* (BLOCK (ALT Letter) (ALT Digit)))))) (RULE Num (BLOCK (ALT (+ (BLOCK (ALT Digit)))))) (RULE CharacterLiteral (BLOCK (ALT '\'' SingleCharacter '\''))) (RULE SingleCharacter (RULEMODIFIERS fragment) (BLOCK (ALT (~ (SET ['\\]))))) (RULE Digit (BLOCK (ALT [0-9]))) (RULE Letter (BLOCK (ALT [a-zA-Z]))) (RULE WS (BLOCK (LEXER_ALT_ACTION (ALT (+ (BLOCK (ALT [  \t\r\n\u000C])))) skip))) (RULE COMMENT (BLOCK (LEXER_ALT_ACTION (ALT '/*' (* (BLOCK (ALT .))) '*/') skip))) (RULE LINE_COMMENT (BLOCK (LEXER_ALT_ACTION (ALT '//' (* (BLOCK (ALT (~ (SET [\r\n])))))) skip)))))
+2020-10-11 15:24:58:300 grammar LogManager.java:25 after: (COMBINED_GRAMMAR Decaf (@ lexer namespace {CustomIde}) (@ parser namespace {CustomIde}) (RULES (RULE program (BLOCK (ALT 'class' Id '{' (* (BLOCK (ALT declaration))) '}'))) (RULE declaration (BLOCK (ALT structDeclaration) (ALT varDeclaration) (ALT methodDeclaration))) (RULE varDeclaration (BLOCK (ALT (= vartype varType) Id ';') (ALT (= vartype varType) Id '[' Num ']' ';'))) (RULE structDeclaration (BLOCK (ALT 'struct' Id '{' (* (BLOCK (ALT varDeclaration))) '}'))) (RULE varType (BLOCK (ALT 'int') (ALT 'char') (ALT 'boolean') (ALT 'struct' Id) (ALT structDeclaration) (ALT 'void'))) (RULE methodDeclaration (BLOCK (ALT (= metoInt 'int') Id '(' (? (BLOCK (ALT parameter (* (BLOCK (ALT ',' parameter)))))) ')' block) (ALT (= metoChar 'char') Id '(' (? (BLOCK (ALT parameter (* (BLOCK (ALT ',' parameter)))))) ')' block) (ALT (= metoBool 'boolean') Id '(' (? (BLOCK (ALT parameter (* (BLOCK (ALT ',' parameter)))))) ')' block) (ALT (= metVoid 'void') Id '(' (? (BLOCK (ALT parameter (* (BLOCK (ALT ',' parameter)))))) ')' block))) (RULE parameter (BLOCK (ALT (= param parameterType) Id))) (RULE parameterType (BLOCK (ALT 'int') (ALT 'char') (ALT 'boolean'))) (RULE block (BLOCK (ALT '{' (* (BLOCK (ALT varDeclaration))) (* (BLOCK (ALT statement))) '}'))) (RULE statement (BLOCK (ALT ifStmt) (ALT whileStmt) (ALT returnStmt) (ALT methodCall ';') (ALT block) (ALT location '=' expression ';') (ALT location '=' '(char)' expression ';') (ALT (? (BLOCK (ALT expression))) ';'))) (RULE ifStmt (BLOCK (ALT 'if' '(' expression ')' (= block1 block) (? (BLOCK (ALT 'else' (= block_else block))))))) (RULE whileStmt (BLOCK (ALT 'while' '(' expression ')' block))) (RULE returnStmt (BLOCK (ALT 'return' (? (BLOCK (ALT expression))) ';'))) (RULE location (BLOCK (ALT Id (? (BLOCK (ALT '.' location)))) (ALT Id '[' expression ']' (? (BLOCK (ALT '.' location)))))) (RULE expression (BLOCK (ALT location) (ALT methodCall) (ALT Num) (ALT CharacterLiteral) (ALT bool_literal) (ALT (= derecha expression) arith_higher_op (= izquierda expression)) (ALT (= derecha expression) arith_op (= izquierda expression)) (ALT (= derecha expression) rel_op (= izquierda expression)) (ALT (= derecha expression) eq_op (= izquierda expression)) (ALT (= derecha expression) cond_op (= izquierda expression)) (ALT '-' expression) (ALT '!' expression) (ALT '(' expression ')'))) (RULE methodCall (BLOCK (ALT Id '(' (? (BLOCK (ALT arg (* (BLOCK (ALT ',' arg)))))) ')'))) (RULE arg (BLOCK (ALT expression))) (RULE arith_higher_op (BLOCK (ALT (SET '*' '/' '%')))) (RULE arith_op (BLOCK (ALT (SET '+' '-')))) (RULE rel_op (BLOCK (ALT (SET '<' '>' '<=' '>=')))) (RULE eq_op (BLOCK (ALT (SET '==' '!=')))) (RULE cond_op (BLOCK (ALT (SET '&&' '||')))) (RULE bool_literal (BLOCK (ALT (SET 'true' 'false')))) (RULE Id (BLOCK (ALT Letter (* (BLOCK (ALT Letter) (ALT Digit)))))) (RULE Num (BLOCK (ALT (+ (BLOCK (ALT Digit)))))) (RULE CharacterLiteral (BLOCK (ALT '\'' SingleCharacter '\''))) (RULE SingleCharacter (RULEMODIFIERS fragment) (BLOCK (ALT (~ (SET ['\\]))))) (RULE Digit (BLOCK (ALT [0-9]))) (RULE Letter (BLOCK (ALT [a-zA-Z]))) (RULE WS (BLOCK (LEXER_ALT_ACTION (ALT (+ (BLOCK (ALT [  \t\r\n\u000C])))) skip))) (RULE COMMENT (BLOCK (LEXER_ALT_ACTION (ALT '/*' (* (BLOCK (ALT .))) '*/') skip))) (RULE LINE_COMMENT (BLOCK (LEXER_ALT_ACTION (ALT '//' (* (BLOCK (ALT (~ (SET [\r\n])))))) skip)))))
+2020-10-11 15:24:58:322 grammar LogManager.java:25 after extract implicit lexer =(COMBINED_GRAMMAR Decaf (@ parser namespace {CustomIde}) (RULES (RULE program (BLOCK (ALT 'class' Id '{' (* (BLOCK (ALT declaration))) '}'))) (RULE declaration (BLOCK (ALT structDeclaration) (ALT varDeclaration) (ALT methodDeclaration))) (RULE varDeclaration (BLOCK (ALT (= vartype varType) Id ';') (ALT (= vartype varType) Id '[' Num ']' ';'))) (RULE structDeclaration (BLOCK (ALT 'struct' Id '{' (* (BLOCK (ALT varDeclaration))) '}'))) (RULE varType (BLOCK (ALT 'int') (ALT 'char') (ALT 'boolean') (ALT 'struct' Id) (ALT structDeclaration) (ALT 'void'))) (RULE methodDeclaration (BLOCK (ALT (= metoInt 'int') Id '(' (? (BLOCK (ALT parameter (* (BLOCK (ALT ',' parameter)))))) ')' block) (ALT (= metoChar 'char') Id '(' (? (BLOCK (ALT parameter (* (BLOCK (ALT ',' parameter)))))) ')' block) (ALT (= metoBool 'boolean') Id '(' (? (BLOCK (ALT parameter (* (BLOCK (ALT ',' parameter)))))) ')' block) (ALT (= metVoid 'void') Id '(' (? (BLOCK (ALT parameter (* (BLOCK (ALT ',' parameter)))))) ')' block))) (RULE parameter (BLOCK (ALT (= param parameterType) Id))) (RULE parameterType (BLOCK (ALT 'int') (ALT 'char') (ALT 'boolean'))) (RULE block (BLOCK (ALT '{' (* (BLOCK (ALT varDeclaration))) (* (BLOCK (ALT statement))) '}'))) (RULE statement (BLOCK (ALT ifStmt) (ALT whileStmt) (ALT returnStmt) (ALT methodCall ';') (ALT block) (ALT location '=' expression ';') (ALT location '=' '(char)' expression ';') (ALT (? (BLOCK (ALT expression))) ';'))) (RULE ifStmt (BLOCK (ALT 'if' '(' expression ')' (= block1 block) (? (BLOCK (ALT 'else' (= block_else block))))))) (RULE whileStmt (BLOCK (ALT 'while' '(' expression ')' block))) (RULE returnStmt (BLOCK (ALT 'return' (? (BLOCK (ALT expression))) ';'))) (RULE location (BLOCK (ALT Id (? (BLOCK (ALT '.' location)))) (ALT Id '[' expression ']' (? (BLOCK (ALT '.' location)))))) (RULE expression (BLOCK (ALT location) (ALT methodCall) (ALT Num) (ALT CharacterLiteral) (ALT bool_literal) (ALT (= derecha expression) arith_higher_op (= izquierda expression)) (ALT (= derecha expression) arith_op (= izquierda expression)) (ALT (= derecha expression) rel_op (= izquierda expression)) (ALT (= derecha expression) eq_op (= izquierda expression)) (ALT (= derecha expression) cond_op (= izquierda expression)) (ALT '-' expression) (ALT '!' expression) (ALT '(' expression ')'))) (RULE methodCall (BLOCK (ALT Id '(' (? (BLOCK (ALT arg (* (BLOCK (ALT ',' arg)))))) ')'))) (RULE arg (BLOCK (ALT expression))) (RULE arith_higher_op (BLOCK (ALT (SET '*' '/' '%')))) (RULE arith_op (BLOCK (ALT (SET '+' '-')))) (RULE rel_op (BLOCK (ALT (SET '<' '>' '<=' '>=')))) (RULE eq_op (BLOCK (ALT (SET '==' '!=')))) (RULE cond_op (BLOCK (ALT (SET '&&' '||')))) (RULE bool_literal (BLOCK (ALT (SET 'true' 'false'))))))
+2020-10-11 15:24:58:322 grammar LogManager.java:25 lexer =(LEXER_GRAMMAR DecafLexer (@ lexer namespace {CustomIde}) (@ parser namespace {CustomIde}) (RULES (RULE T__0 (BLOCK (ALT 'class'))) (RULE T__1 (BLOCK (ALT '{'))) (RULE T__2 (BLOCK (ALT '}'))) (RULE T__3 (BLOCK (ALT ';'))) (RULE T__4 (BLOCK (ALT '['))) (RULE T__5 (BLOCK (ALT ']'))) (RULE T__6 (BLOCK (ALT 'struct'))) (RULE T__7 (BLOCK (ALT 'int'))) (RULE T__8 (BLOCK (ALT 'char'))) (RULE T__9 (BLOCK (ALT 'boolean'))) (RULE T__10 (BLOCK (ALT 'void'))) (RULE T__11 (BLOCK (ALT '('))) (RULE T__12 (BLOCK (ALT ','))) (RULE T__13 (BLOCK (ALT ')'))) (RULE T__14 (BLOCK (ALT '='))) (RULE T__15 (BLOCK (ALT '(char)'))) (RULE T__16 (BLOCK (ALT 'if'))) (RULE T__17 (BLOCK (ALT 'else'))) (RULE T__18 (BLOCK (ALT 'while'))) (RULE T__19 (BLOCK (ALT 'return'))) (RULE T__20 (BLOCK (ALT '.'))) (RULE T__21 (BLOCK (ALT '-'))) (RULE T__22 (BLOCK (ALT '!'))) (RULE T__23 (BLOCK (ALT '*'))) (RULE T__24 (BLOCK (ALT '/'))) (RULE T__25 (BLOCK (ALT '%'))) (RULE T__26 (BLOCK (ALT '+'))) (RULE T__27 (BLOCK (ALT '<'))) (RULE T__28 (BLOCK (ALT '>'))) (RULE T__29 (BLOCK (ALT '<='))) (RULE T__30 (BLOCK (ALT '>='))) (RULE T__31 (BLOCK (ALT '=='))) (RULE T__32 (BLOCK (ALT '!='))) (RULE T__33 (BLOCK (ALT '&&'))) (RULE T__34 (BLOCK (ALT '||'))) (RULE T__35 (BLOCK (ALT 'true'))) (RULE T__36 (BLOCK (ALT 'false'))) (RULE Id (BLOCK (ALT Letter (* (BLOCK (ALT Letter) (ALT Digit)))))) (RULE Num (BLOCK (ALT (+ (BLOCK (ALT Digit)))))) (RULE CharacterLiteral (BLOCK (ALT '\'' SingleCharacter '\''))) (RULE SingleCharacter (RULEMODIFIERS fragment) (BLOCK (ALT (~ (SET ['\\]))))) (RULE Digit (BLOCK (ALT [0-9]))) (RULE Letter (BLOCK (ALT [a-zA-Z]))) (RULE WS (BLOCK (LEXER_ALT_ACTION (ALT (+ (BLOCK (ALT [  \t\r\n\u000C])))) skip))) (RULE COMMENT (BLOCK (LEXER_ALT_ACTION (ALT '/*' (* (BLOCK (ALT .))) '*/') skip))) (RULE LINE_COMMENT (BLOCK (LEXER_ALT_ACTION (ALT '//' (* (BLOCK (ALT (~ (SET [\r\n])))))) skip)))))
+2020-10-11 15:24:58:607 action-translator LogManager.java:25 translate CustomIde
+2020-10-11 15:24:58:709 left-recursion LogManager.java:25 expression
+    :   ( {} location<tokenIndex=471> 
+        | methodCall<tokenIndex=477> 
+        | Num<tokenIndex=483> 
+        | CharacterLiteral<tokenIndex=489> 
+        | bool_literal<tokenIndex=495> 
+        | '-'<tokenIndex=576> expression<tokenIndex=578,p=3> 
+        | '!'<tokenIndex=584> expression<tokenIndex=586,p=2> 
+        | '('<tokenIndex=592> expression<tokenIndex=594> ')'<tokenIndex=596> 
+        )
+        (
+          {self.precpred(self._ctx, 8)}?<p=8> arith_higher_op<tokenIndex=506> izquierda=expression<tokenIndex=510,p=9>
+                  | {self.precpred(self._ctx, 7)}?<p=7> arith_op<tokenIndex=521> izquierda=expression<tokenIndex=525,p=8>
+                  | {self.precpred(self._ctx, 6)}?<p=6> rel_op<tokenIndex=536> izquierda=expression<tokenIndex=540,p=7>
+                  | {self.precpred(self._ctx, 5)}?<p=5> eq_op<tokenIndex=551> izquierda=expression<tokenIndex=555,p=6>
+                  | {self.precpred(self._ctx, 4)}?<p=4> cond_op<tokenIndex=566> izquierda=expression<tokenIndex=570,p=5>
+        )*
+    ;
+2020-10-11 15:24:58:718 grammar LogManager.java:25 added: (RULE expression (BLOCK (ALT (BLOCK (ALT {} (location (ELEMENT_OPTIONS (= tokenIndex 471)))) (ALT (methodCall (ELEMENT_OPTIONS (= tokenIndex 477)))) (ALT (Num (ELEMENT_OPTIONS (= tokenIndex 483)))) (ALT (CharacterLiteral (ELEMENT_OPTIONS (= tokenIndex 489)))) (ALT (bool_literal (ELEMENT_OPTIONS (= tokenIndex 495)))) (ALT ('-' (ELEMENT_OPTIONS (= tokenIndex 576))) (expression (ELEMENT_OPTIONS (= tokenIndex 578) (= p 3)))) (ALT ('!' (ELEMENT_OPTIONS (= tokenIndex 584))) (expression (ELEMENT_OPTIONS (= tokenIndex 586) (= p 2)))) (ALT ('(' (ELEMENT_OPTIONS (= tokenIndex 592))) (expression (ELEMENT_OPTIONS (= tokenIndex 594))) (')' (ELEMENT_OPTIONS (= tokenIndex 596))))) (* (BLOCK (ALT ({self.precpred(self._ctx, 8)}? (ELEMENT_OPTIONS (= p 8))) (arith_higher_op (ELEMENT_OPTIONS (= tokenIndex 506))) (= izquierda (expression (ELEMENT_OPTIONS (= tokenIndex 510) (= p 9))))) (ALT ({self.precpred(self._ctx, 7)}? (ELEMENT_OPTIONS (= p 7))) (arith_op (ELEMENT_OPTIONS (= tokenIndex 521))) (= izquierda (expression (ELEMENT_OPTIONS (= tokenIndex 525) (= p 8))))) (ALT ({self.precpred(self._ctx, 6)}? (ELEMENT_OPTIONS (= p 6))) (rel_op (ELEMENT_OPTIONS (= tokenIndex 536))) (= izquierda (expression (ELEMENT_OPTIONS (= tokenIndex 540) (= p 7))))) (ALT ({self.precpred(self._ctx, 5)}? (ELEMENT_OPTIONS (= p 5))) (eq_op (ELEMENT_OPTIONS (= tokenIndex 551))) (= izquierda (expression (ELEMENT_OPTIONS (= tokenIndex 555) (= p 6))))) (ALT ({self.precpred(self._ctx, 4)}? (ELEMENT_OPTIONS (= p 4))) (cond_op (ELEMENT_OPTIONS (= tokenIndex 566))) (= izquierda (expression (ELEMENT_OPTIONS (= tokenIndex 570) (= p 5))))))))))
+2020-10-11 15:24:58:721 semantics LogManager.java:25 tokens={EOF=-1, T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, T__17=18, T__18=19, T__19=20, T__20=21, T__21=22, T__22=23, T__23=24, T__24=25, T__25=26, T__26=27, T__27=28, T__28=29, T__29=30, T__30=31, T__31=32, T__32=33, T__33=34, T__34=35, T__35=36, T__36=37, Id=38, Num=39, CharacterLiteral=40, Digit=41, Letter=42, WS=43, COMMENT=44, LINE_COMMENT=45}
+2020-10-11 15:24:58:721 semantics LogManager.java:25 strings={'class'=1, '{'=2, '}'=3, ';'=4, '['=5, ']'=6, 'struct'=7, 'int'=8, 'char'=9, 'boolean'=10, 'void'=11, '('=12, ','=13, ')'=14, '='=15, '(char)'=16, 'if'=17, 'else'=18, 'while'=19, 'return'=20, '.'=21, '-'=22, '!'=23, '*'=24, '/'=25, '%'=26, '+'=27, '<'=28, '>'=29, '<='=30, '>='=31, '=='=32, '!='=33, '&&'=34, '||'=35, 'true'=36, 'false'=37}
+2020-10-11 15:24:58:730 LL1 LogManager.java:25 
+DECISION 0 in rule program
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 look=[{7..11}, 3]
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 LL(1)? true
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 
+DECISION 1 in rule declaration
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 look=[7, {7..11}, {8..11}]
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 LL(1)? false
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 
+DECISION 2 in rule varDeclaration
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 look=[{7..11}, {7..11}]
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 LL(1)? false
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 
+DECISION 3 in rule structDeclaration
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 look=[{7..11}, 3]
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 LL(1)? true
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 
+DECISION 4 in rule varType
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 look=[8, 9, 10, 7, 7, 11]
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 LL(1)? false
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 
+DECISION 5 in rule methodDeclaration
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 look=[13, 14]
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 LL(1)? true
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 
+DECISION 6 in rule methodDeclaration
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 look=[{8..10}, 14]
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 LL(1)? true
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 
+DECISION 7 in rule methodDeclaration
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 look=[13, 14]
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 LL(1)? true
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 
+DECISION 8 in rule methodDeclaration
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 look=[{8..10}, 14]
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 LL(1)? true
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 
+DECISION 9 in rule methodDeclaration
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 look=[13, 14]
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 LL(1)? true
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 
+DECISION 10 in rule methodDeclaration
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 look=[{8..10}, 14]
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 LL(1)? true
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 
+DECISION 11 in rule methodDeclaration
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 look=[13, 14]
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 LL(1)? true
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 
+DECISION 12 in rule methodDeclaration
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 look=[{8..10}, 14]
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 LL(1)? true
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 
+DECISION 13 in rule methodDeclaration
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 look=[8, 9, 10, 11]
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 LL(1)? true
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 
+DECISION 14 in rule parameterType
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 look=[8, 9, 10]
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 LL(1)? true
+2020-10-11 15:24:58:731 LL1 LogManager.java:25 
+DECISION 15 in rule block
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 look=[{7..11}, {2..4, 12, 17, 19..20, 22..23, 36..40}]
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 LL(1)? true
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 
+DECISION 16 in rule block
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 look=[{2, 4, 12, 17, 19..20, 22..23, 36..40}, 3]
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 LL(1)? true
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 
+DECISION 17 in rule statement
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 look=[{12, 22..23, 36..40}, 4]
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 LL(1)? true
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 
+DECISION 18 in rule statement
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 look=[17, 19, 20, 38, 2, 38, 38, {4, 12, 22..23, 36..40}]
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 LL(1)? false
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 
+DECISION 19 in rule ifStmt
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 look=[18, {2..4, 12, 17, 19..20, 22..23, 36..40}]
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 LL(1)? true
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 
+DECISION 20 in rule returnStmt
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 look=[{12, 22..23, 36..40}, 4]
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 LL(1)? true
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 
+DECISION 21 in rule location
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 look=[21, null]
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 LL(1)? false
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 
+DECISION 22 in rule location
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 look=[21, null]
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 LL(1)? false
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 
+DECISION 23 in rule location
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 look=[38, 38]
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 LL(1)? false
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 
+DECISION 24 in rule expression
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 look=[38, 38, 39, 40, {36..37}, 22, 23, 12]
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 LL(1)? false
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 
+DECISION 25 in rule expression
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 look=[null, null, null, null, null]
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 LL(1)? false
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 
+DECISION 26 in rule expression
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 look=[null, null]
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 LL(1)? false
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 
+DECISION 27 in rule methodCall
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 look=[13, 14]
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 LL(1)? true
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 
+DECISION 28 in rule methodCall
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 look=[{12, 22..23, 36..40}, 14]
+2020-10-11 15:24:58:732 LL1 LogManager.java:25 LL(1)? true
+2020-10-11 15:24:58:771 action-translator LogManager.java:25 translate CustomIde
+2020-10-11 15:24:58:804 action-translator LogManager.java:25 translate 
+2020-10-11 15:24:58:805 action-translator LogManager.java:25 translate self.precpred(self._ctx, 8)
+2020-10-11 15:24:58:805 action-translator LogManager.java:25 translate self.precpred(self._ctx, 7)
+2020-10-11 15:24:58:806 action-translator LogManager.java:25 translate self.precpred(self._ctx, 6)
+2020-10-11 15:24:58:806 action-translator LogManager.java:25 translate self.precpred(self._ctx, 5)
+2020-10-11 15:24:58:806 action-translator LogManager.java:25 translate self.precpred(self._ctx, 4)
+2020-10-11 15:24:58:808 action-translator LogManager.java:25 translate self.precpred(self._ctx, 8)
+2020-10-11 15:24:58:808 action-translator LogManager.java:25 translate self.precpred(self._ctx, 7)
+2020-10-11 15:24:58:808 action-translator LogManager.java:25 translate self.precpred(self._ctx, 6)
+2020-10-11 15:24:58:808 action-translator LogManager.java:25 translate self.precpred(self._ctx, 5)
+2020-10-11 15:24:58:808 action-translator LogManager.java:25 translate self.precpred(self._ctx, 4)
+2020-10-11 15:24:58:877 action-translator LogManager.java:25 translate CustomIde
+2020-10-11 15:24:58:882 action-translator LogManager.java:25 translate CustomIde
